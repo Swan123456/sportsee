@@ -5,7 +5,8 @@ import { useParams } from "react-router";
 import { Main } from "../styles/homeStyle";
 import UserInfos from "../components/UserInfos";
 import BarCharts from "../components/BarChart";
-import { Content } from "../styles/userStyle";
+import { Content, BottomChart } from "../styles/userStyle";
+import UserAverageSessions from "../components/UserAverageSession";
 
 /**Render the dashboard
  * @return {JSX}
@@ -30,6 +31,9 @@ import { Content } from "../styles/userStyle";
       <Content>
           <section>
             <BarCharts />
+            <BottomChart>
+              <UserAverageSessions />
+            </BottomChart>
           </section>
       </Content>
     </Main>
