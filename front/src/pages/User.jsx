@@ -8,6 +8,7 @@ import BarCharts from "../components/BarChart";
 import { Content, BottomChart } from "../styles/userStyle";
 import UserAverageSessions from "../components/UserAverageSession";
 import UserPerformance from "../components/UserPerformance";
+import ScoreChart from "../components/ScoreChart";
 
 /**Render the dashboard
  * @return {JSX}
@@ -35,6 +36,7 @@ import UserPerformance from "../components/UserPerformance";
             <BottomChart>
               <UserAverageSessions />
               <UserPerformance />
+              <ScoreChart data={data} />
             </BottomChart>
           </section>
       </Content>
