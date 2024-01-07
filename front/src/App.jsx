@@ -9,10 +9,7 @@ import Error from './pages/Error';
 /**
  * Composant principal représentant l'application.
  * @component
- * @example
- * // Exemple d'utilisation du composant App
- * <App />
- * @returns {JSX.Element} - Le composant App.
+ * @returns {JSX}
  */
 export default function App() {
     
