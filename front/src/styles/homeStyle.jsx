@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Main = styled.main`
-  max-width: 1240px;
+  max-width: 1024px;
   margin-left: 15rem;
   a {
     margin-top: 1rem;
