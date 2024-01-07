@@ -6,8 +6,17 @@ import iconDumbBell from "../assets/iconDumbBell.svg";
 import { NavLink } from "react-router-dom";
 import { Container, Nav, Wrapper, NavText } from "../styles/sideBarStyle";
 
+/**
+ * Composant représentant la barre latérale de navigation.
+ * @component
+ * @example
+ * // Exemple d'utilisation du composant SideBar
+ * <SideBar />
+ * @param {Object} props - Les propriétés du composant.
+ * @param {string} props.someProp - Une propriété exemple.
+ * @returns {JSX.Element} - Le composant SideBar.
+ */
 export default function SideBar(){
-    
   return (
     <Container>
       <Nav>
