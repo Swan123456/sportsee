@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
+import User from "./pages/User";
 
 /**
  * Composant principal représentant l'application.
@@ -20,6 +21,7 @@ export default function App() {
       <SideBar />
       <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/user/:id" element={<User />} />
       </Routes>
     </BrowserRouter>
   );
