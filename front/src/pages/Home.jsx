@@ -15,8 +15,8 @@ export default function Home (){
   return (
     <Main>
       <Title>Select USER</Title>
-      <NavLink to="user/12">👦 Jean </NavLink>
-      <NavLink to="user/18">👩 David </NavLink>
+      <NavLink to="user/12">👦 Karl </NavLink>
+      <NavLink to="user/18">👩 Cecilia </NavLink>
     </Main>
   );
 };
