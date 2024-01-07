@@ -4,6 +4,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
 import User from "./pages/User";
+import Error from './pages/Error';
 
 /**
  * Composant principal représentant l'application.
@@ -22,6 +23,7 @@ export default function App() {
       <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/user/:id" element={<User />} />
+          <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
   );

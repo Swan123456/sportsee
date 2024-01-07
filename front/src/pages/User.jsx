@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Main } from "../styles/homeStyle";
 import UserInfos from "../components/UserInfos";
+import BarCharts from "../components/BarChart";
+import { Content } from "../styles/userStyle";
 
 /**Render the dashboard
  * @return {JSX}
@@ -21,10 +23,15 @@ import UserInfos from "../components/UserInfos";
     data();
   }, [id]);
   if (data.length === 0) return null;
-  
+
   return (
     <Main>
       <UserInfos name={data.userInfos.firstName} />
+      <Content>
+          <section>
+            <BarCharts />
+          </section>
+      </Content>
     </Main>
   );
 };
