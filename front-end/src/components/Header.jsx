@@ -5,13 +5,8 @@ import logo from "../assets/logo.svg";
 
 /**
  * Composant représentant la barre latérale de navigation.
- * @component
- * @example
- * // Exemple d'utilisation du composant SideBar
- * <SideBar someProp="exemple" />
- * @param {Object} props - Les propriétés du composant.
- * @param {string} [props.someProp] - Une propriété exemple.
- * @returns {JSX.Element} - Le composant SideBar.
+ * @param {Object} 
+ * @returns {JSX} 
  */
 export default function Header() {
     
