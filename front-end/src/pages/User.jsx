@@ -14,6 +14,7 @@ import proteinsIcon from "../assets/proteines-icon.svg";
 import glucidesIcon from "../assets/glucides-icon.svg";
 import lipidesIcon from "../assets/lipides-icon.svg";
 import SideBar from "../components/SideBar";
+import Error from "./Error";
 
 /**Render the dashboard
  * @component
@@ -31,7 +32,7 @@ import SideBar from "../components/SideBar";
     };
     data();
   }, [id]);
-  if (data.length === 0) return null;
+  if (!data || data.length === 0) return <Error />;
 
   return (
     <Main>
