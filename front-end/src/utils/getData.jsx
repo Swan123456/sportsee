@@ -27,6 +27,7 @@ import { getUserActivity,getUserAverageSessions, getUserInfos, getUserPerformanc
         break;
     }
     return data;
-  }; 
+  };
+   
 
  

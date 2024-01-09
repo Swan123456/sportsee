@@ -3,7 +3,7 @@ import { Container } from "../styles/userPerformanceStyle";
 import { getData } from '../utils/getData';
 import { useParams } from 'react-router';
 import {Radar,RadarChart,PolarGrid,PolarAngleAxis,ResponsiveContainer} from "recharts";
-
+import { formatDataPerf } from '../models/formatDataPerf';
 
 /**
  * Render a RadarChart with user performance data
@@ -16,32 +16,18 @@ import {Radar,RadarChart,PolarGrid,PolarAngleAxis,ResponsiveContainer} from "rec
 	const {id} = useParams();
 
     useEffect(() => {
-		const data = async () => {
-			const request = await getData("USER_PERFORMANCE",id);
-			if (!request) return alert('data error');
-			const formatData = request.data.data.map((data) => {
-                
-				switch (data.kind) {
-					case 1:
-						return { ...data, kind: 'Cardio' };
-					case 2:
-						return { ...data, kind: 'Energie' };
-					case 3:
-						return { ...data, kind: 'Endurance' };
-					case 4:
-						return { ...data, kind: 'Force' };
-					case 5:
-						return { ...data, kind: 'Vitesse' };
-					case 6:
-						return { ...data, kind: 'Intensité' };
-					default:
-						return {...data };
-				}
-			});
-			setData(formatData);
-		};
-		data();
-	}, [id]);
+        const fetchData = async () => {
+            try {
+                const request = await getData("USER_PERFORMANCE", id);
+                if (!request) return alert('data error');
+                const formattedData = formatDataPerf(request.data.data);
+                setData(formattedData);
+            } catch (error) {
+                console.error("Une erreur s'est produite lors de la récupération des données de performance de l'utilisateur :", error.message);
+            }
+        };
+        fetchData();
+    }, [id]);
 	if (data.length === 0) return null;
 	
     return ( 

@@ -4,7 +4,7 @@ import { getData } from '../utils/getData';
 import { useParams } from "react-router";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
 import SessionsToolType from "./SessionsToolTypes";
-
+import { formatDataAverageSession } from "../models/formatDataAverageSession";
 
 /**
  * Render a LineChart with user average sessions Data
@@ -17,33 +17,17 @@ import SessionsToolType from "./SessionsToolTypes";
   const { id } = useParams();
 
   useEffect(() => {
-    const data = async () => {
-        const request = await getData("USER_AVERAGE_SESSIONS",id);
-        if (!request) return alert("data error");
-      const formatData = request.data.sessions.map((data) => {
-          
-        switch (data.day) {
-          case 1:
-            return { ...data, day: "L" };
-          case 2:
-            return { ...data, day: "M" };
-          case 3:
-            return { ...data, day: "M" };
-          case 4:
-            return { ...data, day: "J" };
-          case 5:
-            return { ...data, day: "V" };
-          case 6:
-            return { ...data, day: "S" };
-          case 7:
-            return { ...data, day: "D" };
-          default:
-            return { ...data };
+    const fetchData = async () => {
+        try {
+            const request = await getData("USER_AVERAGE_SESSIONS", id);
+            if (!request) return alert("data error");
+            const formattedData = formatDataAverageSession(request.data.sessions);
+            setData(formattedData);
+        } catch (error) {
+            console.error("Une erreur s'est produite lors de la récupération des données de sessions moyennes de l'utilisateur :", error.message);
         }
-      });
-      setData(formatData);
     };
-    data();
+    fetchData();
   }, [id]);
   if (data.length === 0) return null;
 
