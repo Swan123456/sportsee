@@ -38,14 +38,14 @@ import { formatDataAverageSession } from "../models/formatDataAverageSession";
         <LineChart data={data} strokeWidth={1} 
              onMouseMove={(e) => {
                 if (e.isTooltipActive === true) {
-                  let div = document.querySelector('.bUPtxZ')
+                  let div = document.querySelector('.jhHjJs')
                   if (div) {
                     let windowWidth = div.clientWidth
                     let mouseXpercentage = Math.round(
                         (e.activeCoordinate.x / windowWidth) * 100
                     )
                     // @ts-ignore
-                    div.style.background = `linear-gradient(90deg, rgba(255,0,0,1) ${mouseXpercentage}%, rgba(175,0,0,1.5) ${mouseXpercentage}%, rgba(175,0,0,1.5) 100%)`
+                    div.style.background = `linear-gradient(90deg, rgba(255, 0, 0, 1) ${mouseXpercentage}%, rgba(175, 0, 0, 1) ${mouseXpercentage}%, rgba(208, 47, 13, 1) 100%)`;
                   }
                 }
               }}
